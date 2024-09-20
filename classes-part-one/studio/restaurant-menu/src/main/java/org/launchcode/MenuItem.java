@@ -15,7 +15,6 @@ public class MenuItem {
     }
 
 
-
     public void  setIsNew (boolean aIsNew) {
         isNew = aIsNew;
     }
