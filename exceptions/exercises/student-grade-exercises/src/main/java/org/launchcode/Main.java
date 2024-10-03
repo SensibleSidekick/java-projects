@@ -13,15 +13,49 @@ public class Main {
         studentFiles.put("Stefanie", "CoolProgram.java");
 
         // Test out your CheckFileExtension() function!
+        for(String student: studentFiles.values()) {
+            System.out.println(CheckFileExtension(student));
+        }
+
     }
 
-    public static void Divide(int x, int y)
+    public static double Divide(int x, int y)
     {
-        // Write code here!
+        if(y == 0){
+            try{
+                throw new GradeExceptions("You can't divide by zero!");
+            } catch (GradeExceptions e) {
+                e.printStackTrace();
+            }
+        }
+        return x/y;
     }
 
-    public static int CheckFileExtension(String fileName)
-    {
-        // Write code here!
+    public static int CheckFileExtension(String fileName){
+        if(fileName == null) {
+            try {
+                throw new FileException("Missing file type!");
+            } catch(FileException e){
+                e.printStackTrace();
+            }
+            return -1;
+        }
+
+        if ( fileName.isEmpty()){
+            try {
+                throw new FileException("Not a .java file!");
+            } catch(FileException e){
+                e.printStackTrace();
+            }
+            return -1;
+        } else if (fileName.contains(".java")){
+            return 1;
+        } else {
+            return 0;
+        }
+
+
     }
+
+
 }
